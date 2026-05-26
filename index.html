@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Galaxy Memories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- Loading Screen -->
+  <div id="loading">
+    <div id="loading-ring"></div>
+    <div id="loading-bar-wrap">
+      <div id="loading-bar"></div>
+    </div>
+    <div id="loading-text">Initializing Galaxy</div>
+    <div id="loading-sub">✦ &nbsp; Digital Galaxy Memories &nbsp; ✦</div>
+  </div>
+
+  <!-- Three.js Canvas -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Burst Particles Container -->
+  <div id="burst-particles"></div>
+
+  <!-- Landing Page -->
+  <div id="landing">
+    <div id="landing-content">
+      <div id="tagline">✦ &nbsp; Digital Galaxy Memories &nbsp; ✦</div>
+      <h1 id="main-title">
+        Another of<br>
+        <span class="title-accent">Universe</span>
+      </h1>
+      <p id="sub-title">∞ &nbsp;&nbsp; To Infinity And Beyond &nbsp;&nbsp; ∞</p>
+      <button id="cta-btn">
+        <span class="btn-glow"></span>
+        <span class="btn-text">Do you want to see my world?</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Galaxy Center Text -->
+  <div id="galaxy-text">
+    <div id="only-for-you">Only For You ✦</div>
+  </div>
+
+  <!-- UI Overlay (visible after entering galaxy) -->
+  <div id="ui-overlay">
+    <div id="ui-left">
+      <div id="hint-text">drag · scroll · click photos</div>
+      <button id="back-btn">← Back</button>
+    </div>
+    <div id="ui-right">
+      <button id="music-btn" title="Toggle Ambient Music">♪</button>
+    </div>
+  </div>
+
+  <!-- Photo Modal -->
+  <div id="photo-modal">
+    <button id="modal-close">✕</button>
+    <img id="modal-img" src="" alt="Memory">
+    <div id="modal-caption">✦ &nbsp; A Beautiful Memory &nbsp; ✦</div>
+  </div>
+
+  <!-- Scripts: libs first, then app modules -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/loading.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/photos.js"></script>
+  <script src="js/controls.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
