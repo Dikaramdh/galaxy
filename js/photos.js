@@ -96,7 +96,7 @@ window.GalaxyPhotos = (function () {
       const r     = 28 + (index / total) * 65 + Math.random() * 10;
       mesh.position.set(
         r * Math.cos(angle),
-        (Math.random() - 0.5) * 55,
+        (Math.random() - 0.5) * 4,
         r * Math.sin(angle),
       );
       mesh.rotation.y = Math.random() * Math.PI * 2;

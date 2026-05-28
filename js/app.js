@@ -78,7 +78,13 @@
     gsap.to(scene.stars3.material, { opacity: 1.0, duration: 2.5 });
 
     /* Camera zoom in */
-    gsap.to(scene.camera.position, { z: 34, duration: 3.2, ease: 'power2.inOut' });
+    gsap.to(scene.camera.position, {
+      x: 0,
+      y: 34 * Math.cos(Math.PI / 2.3),
+      z: 34 * Math.sin(Math.PI / 2.3),
+      duration: 3.2,
+      ease: 'power2.inOut'
+    });
 
     /* Enable orbit controls */
     setTimeout(() => controls.enable(), 3200);
@@ -86,11 +92,8 @@
     /* Show photos */
     setTimeout(() => photos.showAll(), 900);
 
-    /* "Only For You" text */
-    setTimeout(() => {
-      galaxyText.classList.add('show');
-      setTimeout(() => galaxyText.classList.remove('show'), 4200);
-    }, 2200);
+    /* "Only For You" text - ALWAYS VISIBLE */
+    galaxyText.classList.add('show');
 
     /* UI overlay */
     setTimeout(() => uiOverlay.classList.add('show'), 3400);
@@ -105,6 +108,7 @@
     controls.reset();
 
     uiOverlay.classList.remove('show');
+    galaxyText.classList.remove('show');
     gsap.to(scene.stars2.material, { opacity: 0.85, duration: 1.5 });
     gsap.to(scene.stars3.material, { opacity: 0.85, duration: 1.5 });
 

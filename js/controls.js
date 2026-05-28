@@ -11,12 +11,12 @@ window.GalaxyControls = (function () {
   let enabled    = false;      /* only active in galaxy mode */
   let isDragging = false;
 
-  let camTheta  = 0;
-  let camPhi    = Math.PI / 2;
+  let camTheta  = Math.PI / 2;
+  let camPhi    = Math.PI / 2.3;
   let camRadius = 80;
 
-  let targetTheta  = 0;
-  let targetPhi    = Math.PI / 2;
+  let targetTheta  = Math.PI / 2;
+  let targetPhi    = Math.PI / 2.3;
   let targetRadius = 80;
 
   let prevMouse = { x: 0, y: 0 };
@@ -130,8 +130,9 @@ window.GalaxyControls = (function () {
 
   /* ── Camera idle drift (landing mode) ──────────────────── */
   function idleDrift(t) {
-    camera.position.x = Math.sin(t * 0.11) * 9;
-    camera.position.y = Math.cos(t * 0.07) * 4;
+    camera.position.x = Math.sin(t * 0.11) * 12;
+    camera.position.y = 14 + Math.cos(t * 0.07) * 5;
+    camera.position.z = 76;
     camera.lookAt(0, 0, 0);
   }
 
@@ -168,10 +169,16 @@ window.GalaxyControls = (function () {
 
   function reset() {
     enabled = false;
-    camTheta  = targetTheta  = 0;
-    camPhi    = targetPhi    = Math.PI / 2;
+    camTheta  = targetTheta  = Math.PI / 2;
+    camPhi    = targetPhi    = Math.PI / 2.3;
     camRadius = targetRadius = 80;
-    gsap.to(camera.position, { z: 80, duration: 2, ease: 'power2.inOut' });
+    gsap.to(camera.position, {
+      x: 0,
+      y: 80 * Math.cos(Math.PI / 2.3),
+      z: 80 * Math.sin(Math.PI / 2.3),
+      duration: 2,
+      ease: 'power2.inOut'
+    });
   }
 
 
