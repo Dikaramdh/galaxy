@@ -8,13 +8,6 @@ window.GalaxyPhotos = (function () {
 
   /* ── Photo URLs (replace with real images as needed) ────── */
   const photoUrls = [
-    'images/ana d.jpg',
-    'images/bule.jpeg',
-    'images/lands.jpg',
-    'images/seydo.jpg',
-    'images/rusland.jpg',
-    'images/bule.jpeg',
-    'images/bule.jpeg',
     'images/ule.jpg',
     'images/ule.jpg',
     'images/ule.jpg',
@@ -46,10 +39,7 @@ window.GalaxyPhotos = (function () {
     'images/ule.jpg',
     'images/ule.jpg',
     'images/ule.jpg',
-    'images/ule.jpg',
-
-    'images/ana l.jpg',
-    'images/ana m.jpg',    
+    'images/ule.jpg',   
     
   ];
 

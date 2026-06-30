@@ -92,7 +92,7 @@ window.GalaxyScene = (function () {
     return new THREE.Points(geo, mat);
   }
 
-  const stars1 = makeStars(2200, 0.55, 800, ['#ffffff', '#fda4af', '#f472b6', '#c084fc', '#818cf8']);
+  const stars1 = makeStars(800, 0.45, 800, ['#ffffff', '#fda4af', '#f472b6', '#c084fc', '#818cf8']);
   scene.add(stars1);
 
 
@@ -104,7 +104,7 @@ window.GalaxyScene = (function () {
   galaxyGroup.rotation.z = 0;
   scene.add(galaxyGroup);
 
-  const starCount = 14000;
+  const starCount = 5000;
   const starGeo = new THREE.BufferGeometry();
   const starPositions = new Float32Array(starCount * 3);
   const starColors = new Float32Array(starCount * 3);
@@ -114,7 +114,7 @@ window.GalaxyScene = (function () {
   const starHeights = new Float32Array(starCount);
   const starSpeeds  = new Float32Array(starCount);
 
-  const gasCount = 7000;
+  const gasCount = 2500;
   const gasGeo = new THREE.BufferGeometry();
   const gasPositions = new Float32Array(gasCount * 3);
   const gasColors = new Float32Array(gasCount * 3);
