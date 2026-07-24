@@ -33,6 +33,11 @@ window.GalaxyPhotos = (function () {
     'images/k1.jpg', 
     'images/ule.jpg',
     'images/ule.jpg',
+    'images/k1.jpg',
+    'images/k3.jpg',
+    'images/k2.jpg',
+    'images/k1.jpg', 
+    'images/ule.jpg',
 
     
   ];
@@ -74,14 +79,17 @@ window.GalaxyPhotos = (function () {
       });
       const mesh = new THREE.Mesh(geo, mat);
 
-      /* Distribute in an outward spiral */
+      /* Distribute in an outward spiral, then animate each photo around the center */
       const total = photoUrls.length;
-      const angle = index * 2.39996 + (Math.random() - 0.5) * 0.4;  /* golden angle */
-      const r     = 28 + (index / total) * 65 + Math.random() * 10;
+      const initialAngle = index * 2.39996 + (Math.random() - 0.5) * 0.4;  /* golden angle */
+      const initialRadius = 28 + (index / total) * 65 + Math.random() * 10;
+      const orbitSpeed = 0.03 + Math.random() * 0.03;
+      const orbitOffset = (Math.random() - 0.5) * 0.8;
+
       mesh.position.set(
-        r * Math.cos(angle),
+        initialRadius * Math.cos(initialAngle),
         (Math.random() - 0.5) * 4,
-        r * Math.sin(angle),
+        initialRadius * Math.sin(initialAngle),
       );
       mesh.rotation.y = Math.random() * Math.PI * 2;
       mesh.rotation.x = (Math.random() - 0.5) * 0.25;
@@ -96,6 +104,10 @@ window.GalaxyPhotos = (function () {
         index,
         frame,
         origY:       mesh.position.y,
+        initialAngle,
+        initialRadius,
+        orbitSpeed,
+        orbitOffset,
         floatOffset: Math.random() * Math.PI * 2,
         floatSpeed:  0.28 + Math.random() * 0.38,
         rotOffset:   Math.random() * Math.PI * 2,
@@ -113,8 +125,16 @@ window.GalaxyPhotos = (function () {
   function tick(t) {
     photoMeshes.forEach((m) => {
       const d = m.userData;
+      const orbitAngle = d.initialAngle + t * d.orbitSpeed + d.orbitOffset;
+      const orbitRadius = d.initialRadius + Math.sin(t * 0.25 + d.floatOffset) * 0.5;
+
+      /* Orbit around the center */
+      m.position.x = Math.cos(orbitAngle) * orbitRadius;
+      m.position.z = Math.sin(orbitAngle) * orbitRadius;
+
       /* Floating bob */
       m.position.y = d.origY + Math.sin(t * d.floatSpeed + d.floatOffset) * 1.8;
+
       /* Gentle sway */
       m.rotation.y = m.userData.baseRotY !== undefined
         ? m.userData.baseRotY + Math.sin(t * 0.28 + d.rotOffset) * 0.12
