@@ -8,7 +8,7 @@ window.GalaxyMusic = (function () {
     const musicBtn = document.getElementById("music-btn");
 
     // Load musik
-    const audio = new Audio("assets/cas.mp3");
+    const audio = new Audio("assets/iris.mp3");
 
     // Pengaturan audio
     audio.loop = true;      // Mengulang terus

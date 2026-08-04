@@ -191,7 +191,7 @@ html, body {
 }
 
 .title-accent {
-  color: transparent;
+  color: var(--white-g);
   -webkit-text-stroke: 1px rgba(236, 72, 153, 0.75);
   font-style: normal;
   font-weight: 300;
@@ -199,9 +199,9 @@ html, body {
 
 #sub-title {
   margin-top: 16px;
-  color: var(--text-muted);
+  color: var(--white-g);
   font-size: 15px;
-  letter-spacing: 6px;
+  letter-spacing: 7px;
   font-style: italic;
 }
 
